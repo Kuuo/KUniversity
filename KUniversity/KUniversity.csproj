@@ -1,0 +1,219 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
+    <ApplicationIcon>wwwroot\favicon.ico</ApplicationIcon>
+    <UserSecretsId>e73b3607-2966-4d46-94bc-d7be29db4ccf</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\css\Home\loginStyle.css" />
+    <Content Include="wwwroot\css\site.css" />
+    <Content Include="wwwroot\css\site.min.css" />
+    <Content Include="wwwroot\favicon.ico" />
+    <Content Include="wwwroot\images\Avatar\avatar_female.png" />
+    <Content Include="wwwroot\images\Avatar\avatar_male.png" />
+    <Content Include="wwwroot\images\BGI\1.jpg" />
+    <Content Include="wwwroot\images\BGI\2.jpg" />
+    <Content Include="wwwroot\images\BGI\3.jpg" />
+    <Content Include="wwwroot\images\BGI\4.jpg" />
+    <Content Include="wwwroot\images\Home\KUniversityLoginBgi.png" />
+    <Content Include="wwwroot\images\Home\KUniversityLoginBgi1.png" />
+    <Content Include="wwwroot\js\Home\bgi.js" />
+    <Content Include="wwwroot\js\Home\center.js" />
+    <Content Include="wwwroot\js\site.js" />
+    <Content Include="wwwroot\js\site.min.js" />
+    <Content Include="wwwroot\lib\bootstrap\.bower.json" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Include="wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="wwwroot\lib\bootstrap\dist\js\npm.js" />
+    <Content Include="wwwroot\lib\bootstrap\LICENSE" />
+    <Content Include="wwwroot\lib\highcharts\css\highcharts.css" />
+    <Content Include="wwwroot\lib\highcharts\highcharts-3d.js" />
+    <Content Include="wwwroot\lib\highcharts\highcharts-3d.src.js" />
+    <Content Include="wwwroot\lib\highcharts\highcharts-more.js" />
+    <Content Include="wwwroot\lib\highcharts\highcharts-more.src.js" />
+    <Content Include="wwwroot\lib\highcharts\highcharts.js" />
+    <Content Include="wwwroot\lib\highcharts\highcharts.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\highcharts-3d.js" />
+    <Content Include="wwwroot\lib\highcharts\js\highcharts-3d.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\highcharts-more.js" />
+    <Content Include="wwwroot\lib\highcharts\js\highcharts-more.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\highcharts.js" />
+    <Content Include="wwwroot\lib\highcharts\js\highcharts.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\accessibility.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\accessibility.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\annotations.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\annotations.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\boost-canvas.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\boost-canvas.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\boost.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\boost.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\broken-axis.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\broken-axis.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\data.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\data.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\drilldown.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\drilldown.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\exporting.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\exporting.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\funnel.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\funnel.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\gantt.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\gantt.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\grid-axis.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\grid-axis.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\heatmap.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\heatmap.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\no-data-to-display.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\no-data-to-display.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\offline-exporting.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\offline-exporting.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\overlapping-datalabels.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\overlapping-datalabels.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\series-label.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\series-label.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\solid-gauge.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\solid-gauge.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\static-scale.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\static-scale.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\stock.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\stock.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\treemap.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\treemap.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\xrange-series.js" />
+    <Content Include="wwwroot\lib\highcharts\js\modules\xrange-series.src.js" />
+    <Content Include="wwwroot\lib\highcharts\js\themes\dark-blue.js" />
+    <Content Include="wwwroot\lib\highcharts\js\themes\dark-green.js" />
+    <Content Include="wwwroot\lib\highcharts\js\themes\dark-unica.js" />
+    <Content Include="wwwroot\lib\highcharts\js\themes\gray.js" />
+    <Content Include="wwwroot\lib\highcharts\js\themes\grid-light.js" />
+    <Content Include="wwwroot\lib\highcharts\js\themes\grid.js" />
+    <Content Include="wwwroot\lib\highcharts\js\themes\sand-signika.js" />
+    <Content Include="wwwroot\lib\highcharts\js\themes\skies.js" />
+    <Content Include="wwwroot\lib\highcharts\lib\canvg.js" />
+    <Content Include="wwwroot\lib\highcharts\lib\canvg.src.js" />
+    <Content Include="wwwroot\lib\highcharts\lib\jspdf.js" />
+    <Content Include="wwwroot\lib\highcharts\lib\jspdf.src.js" />
+    <Content Include="wwwroot\lib\highcharts\lib\rgbcolor.js" />
+    <Content Include="wwwroot\lib\highcharts\lib\rgbcolor.src.js" />
+    <Content Include="wwwroot\lib\highcharts\lib\svg2pdf.js" />
+    <Content Include="wwwroot\lib\highcharts\lib\svg2pdf.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\accessibility.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\accessibility.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\annotations.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\annotations.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\boost-canvas.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\boost-canvas.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\boost.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\boost.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\broken-axis.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\broken-axis.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\data.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\data.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\drilldown.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\drilldown.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\exporting.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\exporting.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\funnel.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\funnel.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\gantt.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\gantt.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\grid-axis.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\grid-axis.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\heatmap.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\heatmap.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\no-data-to-display.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\no-data-to-display.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\offline-exporting.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\offline-exporting.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\overlapping-datalabels.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\overlapping-datalabels.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\series-label.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\series-label.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\solid-gauge.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\solid-gauge.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\static-scale.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\static-scale.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\stock.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\stock.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\treemap.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\treemap.src.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\xrange-series.js" />
+    <Content Include="wwwroot\lib\highcharts\modules\xrange-series.src.js" />
+    <Content Include="wwwroot\lib\highcharts\themes\dark-blue.js" />
+    <Content Include="wwwroot\lib\highcharts\themes\dark-green.js" />
+    <Content Include="wwwroot\lib\highcharts\themes\dark-unica.js" />
+    <Content Include="wwwroot\lib\highcharts\themes\gray.js" />
+    <Content Include="wwwroot\lib\highcharts\themes\grid-light.js" />
+    <Content Include="wwwroot\lib\highcharts\themes\grid.js" />
+    <Content Include="wwwroot\lib\highcharts\themes\sand-signika.js" />
+    <Content Include="wwwroot\lib\highcharts\themes\skies.js" />
+    <Content Include="wwwroot\lib\jquery-validation-unobtrusive\.bower.json" />
+    <Content Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <Content Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <Content Include="wwwroot\lib\jquery-validation\.bower.json" />
+    <Content Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <Content Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <Content Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <Content Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <Content Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <Content Include="wwwroot\lib\jquery\.bower.json" />
+    <Content Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <Content Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <Content Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+    <Content Include="wwwroot\lib\jquery\LICENSE.txt" />
+    <Content Include="wwwroot\lib\mdl\iconfont\codepoints" />
+    <Content Include="wwwroot\lib\mdl\iconfont\material-icons.css" />
+    <Content Include="wwwroot\lib\mdl\iconfont\MaterialIcons-Regular.eot" />
+    <Content Include="wwwroot\lib\mdl\iconfont\MaterialIcons-Regular.ijmap" />
+    <Content Include="wwwroot\lib\mdl\iconfont\MaterialIcons-Regular.svg" />
+    <Content Include="wwwroot\lib\mdl\iconfont\MaterialIcons-Regular.ttf" />
+    <Content Include="wwwroot\lib\mdl\iconfont\MaterialIcons-Regular.woff" />
+    <Content Include="wwwroot\lib\mdl\iconfont\MaterialIcons-Regular.woff2" />
+    <Content Include="wwwroot\lib\mdl\iconfont\README.md" />
+    <Content Include="wwwroot\lib\mdl\LICENSE" />
+    <Content Include="wwwroot\lib\mdl\material.css" />
+    <Content Include="wwwroot\lib\mdl\material.min.css" />
+    <Content Include="wwwroot\lib\mdl\material.min.css.map" />
+    <Content Include="wwwroot\lib\mdl\material.min.js" />
+    <Content Include="wwwroot\lib\mdl\material.min.js.map" />
+    <Content Include="wwwroot\lib\mdl\package.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="1.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="1.1.0" />
+    <PackageReference Include="MySql.Data" Version="8.0.9-dmr" />
+    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.9-dmr" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="1.1.0" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>

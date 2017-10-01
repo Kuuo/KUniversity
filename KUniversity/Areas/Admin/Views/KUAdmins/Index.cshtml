@@ -1,0 +1,104 @@
+@model AdminIndexData
+
+@{
+    ViewData["Title"] = "系统管理";
+    ViewData["PageTtile"] = "概览";
+}
+
+<style>
+  a:hover {
+    text-decoration: none;
+  }
+</style>
+
+<div style="width: 100%">
+  <span style="font-size: 18px">校区总览</span>
+  <span style="float: right">共 @Model.Campuses.Count() 个校区</span>
+</div>
+<hr style="width: 100%" />
+
+<div class="mdl-grid" style="width: 100%">
+  @foreach (var item in Model.Campuses)
+  {
+      <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-card--expand">
+          <a asp-action="Details" asp-controller="CampusMgr" asp-route-id="@item.Id"
+             class="campusEntry mdl-button mdl-button--colored">
+            <h2 class="mdl-card__title-text">@item.Name 校区</h2>
+          </a>
+        </div>
+
+        <div class="mdl-card__supporting-text">
+          @item.Address
+        </div>
+
+        <div class="mdl-card__actions mdl-card--border">
+          <span style="line-height: 36px; position:relative; left:8px; font-size:12px;">
+            共 @item.Department.Count() 个学院
+          </span>
+          <a asp-action="Index" asp-controller="CampusMgr"
+             class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+             data-toggle="tooltip" data-placement="top" title="校区管理"
+             style="float: right">
+            <i class="material-icons">subdirectory_arrow_right</i>
+          </a>
+        </div>
+      </div>
+  }
+</div>
+
+<div style="width: 100%; margin-top: 40px">
+  <span style="font-size: 18px">学院总览</span>
+  <span style="float: right">共 @Model.Departments.Count() 个学院</span>
+</div>
+<hr style="width: 100%" />
+
+<div id="departmentsData"
+     style="width: 100%; height: 400px; margin: 10px auto;">
+</div>
+
+<table id="datatable" style="visibility: hidden; position: absolute; top: 0; left: 0">
+  <thead><tr><th>学院名称</th><th>专业数量</th></tr></thead>
+  <tbody>
+    @foreach (var item in Model.Departments)
+    {
+        <tr>
+          <td>@Html.DisplayFor(modelItem => item.Name)</td>
+          <td>@item.Major.Count()</td>
+        </tr>
+    }
+  </tbody>
+</table>
+
+<script src="~/lib/highcharts/highcharts.js"></script>
+<script src="~/lib/highcharts/modules/data.js"></script>
+
+<script>
+  Highcharts.chart('departmentsData', {
+    data: {
+      table: 'datatable'
+    },
+    chart: {
+      type: 'column',
+      backgroundColor: '#F5F5F5'
+    },
+    title: {
+      text: '各学院专业数量'
+    },
+    yAxis: {
+      title: {
+        text: '专业数量'
+      }
+    },
+    tooltip: {
+      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+      '<td style="padding:0"><b>{point.y}</b></td></tr>',
+      footerFormat: '</table>',
+      shared: true,
+      useHTML: true
+    }
+  });
+</script>
+
+@Html.Partial("_BSTollTipPartial")

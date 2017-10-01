@@ -1,0 +1,56 @@
+@model List<Enrollment>
+
+@{
+    ViewData["Title"] = "概览";
+    var ca = Model[0].CourseAssignment;
+    var course = ca.Course;
+    var code = course.Department.Campus.Code + ca.OrderText;
+    ViewData["PageTitle"] = course.Title;
+}
+
+<style>
+  a:hover {
+    text-decoration: none;
+  }
+</style>
+
+<div class="mdl-grid" style="width: 100%;">
+
+  <div style="width: 100%; margin-top: 40px">
+    <span style="font-size: 16px">#@course.Id &nbsp;&nbsp; @@ @code</span>
+    <span style="font-size: 16px; float: right">共 @Model.Count() 名学生</span>
+  </div>
+  <hr style="width: 100%" />
+
+
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp"
+         style="width: 100%">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">学号</th>
+        <th class="mdl-data-table__cell--non-numeric">姓名</th>
+        <th class="mdl-data-table__cell--non-numeric">专业</th>
+        <th>成绩</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model)
+      {
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">
+              @Html.DisplayFor(modelItem => item.Student.Id)
+            </td>
+            <td class="mdl-data-table__cell--non-numeric">
+              @Html.DisplayFor(modelItem => item.Student.Name)
+            </td>
+            <td class="mdl-data-table__cell--non-numeric">
+              @Html.DisplayFor(modelItem => item.Student.Eclass.Major.Title)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+          </tr>
+      }
+    </tbody>
+  </table>
+</div>

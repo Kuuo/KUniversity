@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"] - KUniversity</title>
+
+  <environment names="Development">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="~/lib/mdl/material.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+  </environment>
+  <environment names="Staging,Production">
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+          asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+          asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="~/lib/mdl/material.min.css" />
+    <link rel="stylesheet" href="~/css/site.min.css" />
+  </environment>
+</head>
+
+<body>
+  <div class="db-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+
+    <header class="db-header mdl-layout__header mdl-color--indigo-600">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">@ViewData["PageTtile"]</span>
+        <div class="mdl-layout-spacer"></div>
+        <a asp-area="" asp-action="Index" asp-controller="Home"
+           class="mdl-button mdl-js-button mdl-color-text--white" id="logoutbtn">
+          <i class="material-icons">exit_to_app</i>
+        </a>
+        <div class="mdl-tooltip" data-mdl-for="logoutbtn">安全退出</div>
+      </div>
+    </header>
+
+    <div class="db-drawer mdl-layout__drawer mdl-color--indigo-500">
+      <header class="db-drawer-header">
+        <img src="~/images/Avatar/avatar_male.png" class="db-avatar">
+        <div class="db-drawer-header-name">
+          <span>系统管理员</span>
+        </div>
+      </header>
+
+      <nav class="db-navigation mdl-navigation mdl-color--indigo-600">
+        <a asp-action="Index" asp-controller="KUAdmins" class="mdl-navigation__link">
+          <i class="material-icons">home</i>概览
+        </a>
+        <a asp-action="Index" asp-controller="CampusMgr" class="mdl-navigation__link">
+          <i class="material-icons">location_city</i>校区管理
+        </a>
+        <a asp-action="Index" asp-controller="DepartmentMgr" class="mdl-navigation__link">
+          <i class="material-icons">business</i>学院管理
+        </a>
+        <div class="mdl-layout-spacer"></div>
+        <div class="db-drawer-header-name" style="margin-bottom: 20px;">
+          <span>&copy; @DateTime.Now.Year - KUniversity</span>
+        </div>
+      </nav>
+    </div>
+    <main class="mdl-layout__content mdl-color--grey-100">
+      <div class="mdl-grid db-content">
+        @RenderBody()
+      </div>
+    </main>
+  </div>
+
+  <environment names="Development">
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/mdl/material.min.js"></script>
+  </environment>
+  <environment names="Staging,Production">
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+            asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+            asp-fallback-test="window.jQuery">
+    </script>
+    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+            asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+    </script>
+    <script src="~/lib/mdl/material.min.js"></script>
+  </environment>
+
+  @RenderSection("scripts", required: false)
+</body>
+
+</html>

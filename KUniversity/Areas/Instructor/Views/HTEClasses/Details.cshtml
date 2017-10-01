@@ -1,0 +1,35 @@
+@model Eclass
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+  #back {
+    position: absolute;
+    left: 3%;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+</style>
+
+<a asp-action="Index" id="back"
+   style="float: right;"
+   class="mdl-button mdl-button--primary mdl-button--fab mdl-js-button mdl-js-ripple-effect">
+  <i class="material-icons">arrow_back</i>
+</a>
+
+<div class="mdl-card mdl-shadow--2dp mdl-grid" style="width: 60%; padding: 10px 20px">
+  <div style="width: 100%; padding-top: 20px">
+    <h5 style="font-size: 20px;">
+      @Model.Major.Title @Model.StartYear @Model.Order 班
+    </h5>
+    <span style="font-size: 14px;">
+      共 @Model.Student.Count() 名学生
+    </span>
+  </div>
+</div>
+
+<div class="mdl-tooltip" for="back">返回</div>

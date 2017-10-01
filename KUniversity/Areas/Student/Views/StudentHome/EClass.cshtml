@@ -1,0 +1,60 @@
+@model Eclass
+
+@{
+    ViewData["Title"] = "行政班";
+    var title = $"{Model.Major.Title} {Model.StartYear}{Model.Order}班";
+    ViewData["PageTitle"] = title;
+}
+
+<style>
+  #back {
+    position: absolute;
+    left: 3%;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+</style>
+
+<div class="mdl-grid" style="width: 100%; margin: 30px">
+  <div style="width: 100%; margin-top: 10px">
+    <span style="font-size: 16px; float: right">共 @Model.Student.Count() 名学生</span>
+  </div>
+  <hr style="width: 100%" />
+
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp"
+         style="width: 100%">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">学号</th>
+        <th class="mdl-data-table__cell--non-numeric">姓名</th>
+        <th class="mdl-data-table__cell--non-numeric">专业</th>
+        <th class="mdl-data-table__cell--non-numeric">民族</th>
+        <th class="mdl-data-table__cell--non-numeric">邮箱</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model.Student)
+      {
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">
+              @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td class="mdl-data-table__cell--non-numeric">
+              @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td class="mdl-data-table__cell--non-numeric">
+              @Html.DisplayFor(modelItem => item.Eclass.Major.Title)
+            </td>
+            <td class="mdl-data-table__cell--non-numeric">
+              @Html.DisplayFor(modelItem => item.Nation)
+            </td>
+            <td class="mdl-data-table__cell--non-numeric">
+              @Html.DisplayFor(modelItem => item.Email)
+            </td>
+          </tr>
+      }
+    </tbody>
+  </table>
+</div>

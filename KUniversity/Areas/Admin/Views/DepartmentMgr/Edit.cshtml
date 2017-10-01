@@ -1,0 +1,75 @@
+@model Department
+
+@{
+    ViewData["Title"] = Model.Name;
+    ViewData["PageTtile"] = Model.Name;
+}
+
+<style>
+  a:hover {
+    text-decoration: none;
+  }
+</style>
+
+<div class="mdl-grid">
+  <form asp-action="Edit">
+    <div class="modal-dialog">
+      <div class="modal-content" style="padding: 10px 20px">
+        <div class="modal-header">
+          <h5 class="modal-title">修改信息</h5>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-horizontal">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+              <label asp-for="CampusId" class="control-label col-md-3"></label>
+              <div class="col-md-9">
+                <select asp-for="CampusId" class="form-control" asp-items="ViewBag.CampusId"></select>
+                <span asp-validation-for="CampusId" class="text-danger"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label asp-for="InstructorId" class="control-label col-md-3"></label>
+              <div class="col-md-9">
+                <select asp-for="InstructorId" class="form-control" asp-items="ViewBag.InstructorID"></select>
+                <span asp-validation-for="InstructorId" class="text-danger"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label asp-for="Name" class="col-md-3 control-label"></label>
+              <div class="col-md-9">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label asp-for="StartTime" class="col-md-3 control-label"></label>
+              <div class="col-md-9">
+                <input asp-for="StartTime" class="form-control" />
+                <span asp-validation-for="StartTime" class="text-danger"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <a asp-action="Details" asp-route-id="@Model.Id"
+                    class="mdl-button mdl-button--accent"
+                    style="float: left; position:relative; left: 12px; line-height: 36px;">
+              取消
+            </a>
+            <button type="submit" value="保存"
+                    class="mdl-button mdl-button--colored" >
+              @*<i class="material-icons">save</i>*@保存
+            </button>
+          </div>
+        </div><!-- modal-body -->
+      </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+  </form>
+</div>

@@ -1,0 +1,82 @@
+﻿body {
+  font-family: "Microsoft YaHei";
+  padding-bottom: 20px;
+}
+
+.kbgi {
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -99;
+}
+
+#bgi {
+  background-image: url(../../images/Home/KUniversityLoginBgi1.png);
+}
+
+
+footer {
+  text-align: center;
+  position: fixed;
+  bottom: 10px;
+  left: 5%;
+  right: 5%;
+  color: white;
+  text-shadow: 1px 1px #333;
+}
+
+.mdl-card {
+  font-size: 14px;
+}
+
+#loginForm {
+  width: 340px;
+  background-color: rgb(250, 250, 250);
+  padding: 20px 25px;
+}
+
+.mdl-textfield {
+  width: 100%;
+}
+
+.mdl-textfield__label:after {
+  bottom: 16px;
+}
+
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label,
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
+.mdl-textfield--floating-label.has-placeholder .mdl-textfield__label {
+  top: 1px;
+}
+
+#loginTitle {
+  font-size: 18px;
+  text-align: center;
+}
+
+#loginForgetPwd {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  margin-top: 10px;
+}
+
+  #loginForgetPwd:hover {
+    text-decoration: none;
+  }
+
+#loginSubmitButtonRow {
+  text-align: center;
+  margin-top: 12px;
+}
+
+#loginSubmit {
+  width: 160px;
+}

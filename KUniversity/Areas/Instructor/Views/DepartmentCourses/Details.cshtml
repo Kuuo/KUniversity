@@ -1,0 +1,47 @@
+@model Course
+
+@{
+    ViewData["Title"] = Model.Title;
+    ViewData["PageTtile"] = Model.Title;
+}
+
+<style>
+  #back {
+    position: absolute;
+    left: 3%;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+</style>
+
+<a asp-action="Index" id="back" style="float: right;"
+   class="mdl-button mdl-button--primary mdl-button--fab mdl-js-button mdl-js-ripple-effect">
+  <i class="material-icons">arrow_back</i>
+</a>
+
+<div class="mdl-card mdl-shadow--2dp mdl-grid" style="width: 60%; padding: 10px 20px">
+  <div style="width: 100%; padding-top: 20px">
+    <h5 style="font-size: 20px;">
+      @Model.Title 专业
+    </h5>
+    <span style="font-size: 14px;">
+     
+    </span>
+  </div>
+
+  <div style="width: 100%; height: 36px;">
+    <hr />
+    <div style="float: right; padding: 10px; margin-top: -56px">
+      <a asp-action="Edit" asp-controller="DepartmentCourses" asp-route-id="@Model.Id" id="editc"
+         class="mdl-button mdl-button--primary mdl-button--fab mdl-js-button mdl-js-ripple-effect">
+        <i class="material-icons">edit</i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="mdl-tooltip" for="back">返回</div>
+<div class="mdl-tooltip" for="editc">编辑</div>
+

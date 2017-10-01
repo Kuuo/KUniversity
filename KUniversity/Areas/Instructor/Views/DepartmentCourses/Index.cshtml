@@ -1,0 +1,58 @@
+@model IEnumerable<Course>
+
+@{
+    ViewData["Title"] = "课程管理";
+    var dept = (Department)ViewData["Dept"];
+    ViewData["PageTtile"] = dept.Name;
+}
+
+<style>
+  a:hover {
+    text-decoration: none;
+  }
+</style>
+
+<div class="mdl-grid" style="width: 100%;">
+  <div style="width: 100%; margin-top: 40px">
+    <span style="font-size: 18px">共 @Model.Count() 门课程</span>
+  </div>
+  <hr style="width: 100%" />
+  @{
+      foreach (var item in Model)
+      {
+          <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp"
+               style="background-color: white; padding-bottom: 10px;">
+            <div class="mdl-card__title">
+              <span class="mdl-card__title-text">@item.Title</span>
+            </div>
+
+            <div class="mdl-card__actions mdl-card--border">
+              <span style="float: left; margin-left: 15px; line-height: 36px; font-size: 14px;">
+                
+              </span>
+              <a asp-action="Edit" asp-controller="DepartmentCourses" asp-route-id="@item.Id"
+                 class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+                 data-toggle="tooltip" data-placement="top" title="编辑­"
+                 style="float: right;">
+                <i class="material-icons">edit</i>
+              </a>
+              <a asp-action="Delete" asp-controller="DepartmentCourses" asp-route-id="@item.Id"
+                 class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+                 data-toggle="tooltip" data-placement="top" title="删除"
+                 style="float: right">
+                <i class="material-icons">delete</i>
+              </a>
+            </div>
+          </div>
+      }
+  }
+</div>
+
+<a asp-action="Create" id="createm"
+   class="mdl-button mdl-button--colored mdl-button--fab mdl-js-button mdl-js-ripple-effect"
+   style="position:fixed; bottom: 60px; right: 120px;">
+  <i class="material-icons">add</i>
+</a>
+<div class="mdl-tooltip" for="createm">新增课程</div>
+
+@Html.Partial("_BSTollTipPartial")

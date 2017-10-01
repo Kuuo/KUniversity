@@ -1,0 +1,53 @@
+@model Major
+
+@{
+    ViewData["Title"] = "新增专业";
+    ViewData["PageTtile"] = "新增专业";
+
+    var dept = (Department)ViewData["Dept"];
+}
+
+<style>
+  a:hover {
+    text-decoration: none;
+  }
+</style>
+
+<div class="mdl-grid">
+  <form asp-action="Create">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">新增专业</h5>
+        </div>
+
+        <input asp-for="DepartmentId" value="@dept.Id" style="visibility: hidden" />
+
+        <div class="modal-body">
+          <div class="form-horizontal">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+              <label asp-for="Title" class="col-md-2 control-label"></label>
+              <div class="col-md-10">
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <a asp-action="Index" asp-route-id="@dept.Id"
+                  class="mdl-button mdl-button--accent"
+                  style="float: left; position:relative; left: 12px; line-height: 36px;">
+            取消
+          </a>
+          <input type="submit" value="新增"
+                 class="mdl-button mdl-button--colored" />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+@Html.Partial("_ValidationScriptsPartial")

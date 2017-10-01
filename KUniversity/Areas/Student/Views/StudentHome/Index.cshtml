@@ -1,0 +1,62 @@
+@model Student
+
+@{
+    ViewData["Title"] = "学生";
+    ViewData["PageTitle"] = "概览";
+
+    var today = DayOfWeek.Monday;
+    var todayEnrollments = Model.Enrollment.Where(e => e.CourseAssignment.ClassTimeInDayOfWeek(today));
+    var todayCourses = new List<Courseassignment>();
+    foreach (var item in todayEnrollments)
+    {
+      todayCourses.Add(item.CourseAssignment);
+    }
+}
+
+<style>
+  a:hover {
+    text-decoration: none;
+  }
+</style>
+
+<div class="mdl-grid" style="width: 100%;">
+  <div style="width: 100%; margin-top: 40px">
+    <span style="font-size: 18px">@DateTime.Now.ToString("yyyy-MM-dd") 今日课程</span>
+    <span style="float: right">共 @todayCourses.Count() 门课</span>
+  </div>
+  <hr style="width: 100%" />
+
+  @{
+      if (todayCourses.Count() < 1)
+      {
+          <div class="mdl-grid">
+            无
+          </div>
+      }
+      else
+      {
+        foreach (var item in todayCourses)
+        {
+              <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp"
+                   style="background-color: white">
+                <div class="mdl-card__title">
+                  <a asp-action="CourseInfo" asp-controller="StudentHome"
+                     asp-area="Student" asp-route-id="@item.Id"
+                     class="mdl-button mdl-button--primary">
+                    <span class="mdl-card__title-text">@item.Course.Title</span>
+                  </a>
+                </div>
+                @{ var timeLocation = item.ClassTimeLocation(today); }
+                <div class="mdl-card__supporting-text">
+                  <span style="float: left; margin-left: 15px">#@item.Course.Id</span>
+                  <span style="float: right">
+                    @item.Instructor.Name |
+                    @timeLocation.Time 节 | 于 @timeLocation.Location | @item.Course.Department.Campus.Name
+                  </span>
+                </div>
+              </div>
+         }
+       }
+  }
+
+</div>

@@ -1,0 +1,41 @@
+@model Course
+
+@{
+    ViewData["Title"] = "课程删除";
+    ViewData["PageTtile"] = "确认删除";
+}
+
+<style>
+  a:hover {
+    text-decoration: none;
+  }
+</style>
+
+<div class="mdl-card mdl-shadow--2dp mdl-grid" style="width: 60%; padding: 10px 20px">
+  <h5>确认删除该专业？</h5>
+  <hr />
+  <input type="hidden" asp-for="Id" />
+  <div class="dl-horizontal" style="width: 100%; text-align: center">
+    <p style="font-size: 22px">
+      @Html.DisplayFor(model => model.Title)
+    </p>
+    <span style="font-size: 14px">
+      
+    </span>
+  </div>
+
+  <form asp-action="Delete" class="mdl-grid" style="display: block; width: 100%;">
+    <div class="form-actions no-color">
+      <button type="submit" style="float: right;" id="deleteConfirm"
+              class="mdl-button mdl-button--accent mdl-button--fab mdl-js-button mdl-js-ripple-effect">
+        <i class="material-icons">delete</i>
+      </button>
+      <a asp-action="Index" asp-route-id="@Model.DepartmentId"
+         class="mdl-button mdl-button--primary">
+        取消
+      </a>
+    </div>
+  </form>
+</div>
+
+<div class="mdl-tooltip" for="deleteConfirm">确认删除</div>;

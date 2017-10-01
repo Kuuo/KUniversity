@@ -1,0 +1,30 @@
+
+@{
+    Layout = "LayoutHome";
+    ViewData["Title"] = "LoginFial";
+}
+
+<link href="~/css/Home/loginStyle.css" rel="stylesheet" />
+
+<div class="kbgi" id="bgi"></div>
+
+<div class="row" id="loginRow">
+  <div class="col-md-4"></div>
+
+  <div class="col-md-4" id="loginFormDiv">
+    <div class="mdl-card mdl-shadow--4dp" id="loginForm">
+      <p id="loginTitle">登录失败</p>
+      <p class="mdl-color-text--accent" style="text-align: center">密码错误</p>
+      <div class="row" id="loginSubmitButtonRow">
+        <a asp-action="AdminLogin" asp-controller="Home" id="loginSubmit"
+           class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+          返回
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4"></div>
+</div>
+
+<script src="~/js/Home/center.js"></script>

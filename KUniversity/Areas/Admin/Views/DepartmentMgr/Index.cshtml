@@ -1,0 +1,73 @@
+@model IEnumerable<Department>
+
+@{
+    ViewData["Title"] = "学院管理";
+    ViewData["PageTtile"] = "学院管理";
+}
+
+<style>
+  #createDepartment {
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+</style>
+
+
+<div style="width: 100%;">
+  <h6>共有 @Model.Count() 个学院</h6>
+  <hr />
+</div>
+
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp"
+       style="width: 100%; margin-bottom: 40px">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">
+        @Html.DisplayNameFor(model => model.Name)
+      </th>
+      <th class="mdl-data-table__cell--non-numeric">
+        @Html.DisplayNameFor(model => model.StartTime)
+      </th>
+      <th class="mdl-data-table__cell--non-numeric">
+        @Html.DisplayNameFor(model => model.Instructor)
+      </th>
+      <th class="mdl-data-table__cell--non-numeric">
+        @Html.DisplayNameFor(model => model.Campus)
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+          <td class="mdl-data-table__cell--non-numeric">
+            <a asp-action="Details" asp-controller="DepartmentMgr" asp-route-id="@item.Id"
+               class="mdl-button mdl-button--primary">
+              @Html.DisplayFor(modelItem => item.Name)
+            </a>
+          </td>
+          <td class="mdl-data-table__cell--non-numeric">
+            @Html.DisplayFor(modelItem => item.StartTime)
+          </td>
+          <td class="mdl-data-table__cell--non-numeric">
+            @Html.DisplayFor(modelItem => item.Instructor.Name)
+          </td>
+          <td class="mdl-data-table__cell--non-numeric">
+            @Html.DisplayFor(modelItem => item.Campus.Name)
+          </td>
+        </tr>
+    }
+  </tbody>
+</table>
+
+<a asp-action="Create" id="createDepartment"
+   class="mdl-button mdl-button--colored mdl-button--fab mdl-js-button mdl-js-ripple-effect"
+   style="position:fixed; bottom: 60px; right: 120px;">
+  <i class="material-icons">add</i>
+</a>
+<div class="mdl-tooltip" for="createDepartment">新增学院</div>

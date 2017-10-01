@@ -1,0 +1,60 @@
+@model Student
+
+@{
+    ViewData["Title"] = "课程";
+    ViewData["PageTitle"] = "课程成绩";
+
+    float avgGrade = 0;
+    foreach (var item in Model.Enrollment)
+    {
+      avgGrade += (float)item.Grade;
+    }
+    int courseCount = Model.Enrollment.Count();
+    avgGrade /= courseCount;
+}
+
+<style>
+  a:hover {
+    text-decoration: none;
+  }
+</style>
+
+<div class="mdl-grid" style="width: 100%;">
+
+  <div style="width: 100%; margin-top: 40px">
+    <span style="font-size: 16px">共 @courseCount 门课</span>
+    <span style="font-size: 16px; float: right">平均分： @avgGrade</span>
+  </div>
+  <hr style="width: 100%" />
+
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp"
+         style="width: 100%">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">课程编号</th>
+        <th class="mdl-data-table__cell--non-numeric">课程名</th>
+        <th class="mdl-data-table__cell--non-numeric">教师名</th>
+        <th>成绩</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model.Enrollment)
+      {
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">
+              @Html.DisplayFor(modelItem => item.CourseAssignment.CourseId)
+            </td>
+            <td class="mdl-data-table__cell--non-numeric">
+              @Html.DisplayFor(modelItem => item.CourseAssignment.Course.Title)
+            </td>
+            <td class="mdl-data-table__cell--non-numeric">
+              @Html.DisplayFor(modelItem => item.CourseAssignment.Instructor.Name)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+          </tr>
+      }
+    </tbody>
+  </table>
+</div>

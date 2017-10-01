@@ -1,0 +1,84 @@
+@model CampusDetailsData
+
+@{
+    ViewData["Title"] = Model.Campus.Name + "校区";
+    ViewData["PageTtile"] = Model.Campus.Name + "校区";
+}
+
+<style>
+  #back {
+    position: absolute;
+    left: 3%;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+</style>
+
+<a asp-action="Index" id="back"
+   style="float: right;"
+   class="mdl-button mdl-button--primary mdl-button--fab mdl-js-button mdl-js-ripple-effect">
+  <i class="material-icons">arrow_back</i>
+</a>
+
+<div class="mdl-card mdl-shadow--2dp mdl-grid" style="width: 60%; padding: 10px 20px">
+  <div style="width: 100%; padding-top: 20px">
+    <h5 style="font-size: 20px;">
+      @Model.Campus.Name 校区
+    </h5>
+    <span style="font-size: 14px;">
+      @Model.Campus.Address
+    </span>
+  </div>
+
+  <div style="width: 100%; height: 36px;">
+    <hr />
+    <div style="float: right; padding: 10px; margin-top: -56px">
+      <a asp-action="Edit" asp-controller="CampusMgr" asp-route-id="@Model.Campus.Id" id="editc"
+         class="mdl-button mdl-button--primary mdl-button--fab mdl-js-button mdl-js-ripple-effect">
+        <i class="material-icons">edit</i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="mdl-tooltip" for="back">返回</div>
+<div class="mdl-tooltip" for="editc">编辑</div>
+
+<div class="mdl-grid" style="width: 100%; margin-bottom: 40px">
+
+  <p style="font-size: 16px; margin-bottom: -5px; margin-top: 15px;">包含 @Model.Departments.Count() 个学院</p>
+  <hr />
+
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp"
+         style="width: 100%">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">学院名称</th>
+        <th class="mdl-data-table__cell--non-numeric">建立时间</th>
+        <th class="mdl-data-table__cell--non-numeric">学院管理员</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model.Departments)
+      {
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">
+              <a asp-action="Details" asp-controller="DepartmentMgr" asp-route-id="@item.Id"
+                 class="mdl-button mdl-button--primary">
+                @Html.DisplayFor(modelItem => item.Name)
+              </a>
+            </td>
+            <td class="mdl-data-table__cell--non-numeric">
+              @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td class="mdl-data-table__cell--non-numeric">
+              @Html.DisplayFor(modelItem => item.Instructor.Name)
+            </td>
+          </tr>
+      }
+    </tbody>
+  </table>
+
+</div>

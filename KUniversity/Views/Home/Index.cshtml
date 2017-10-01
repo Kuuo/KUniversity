@@ -1,0 +1,63 @@
+﻿@model LoginViewModel
+
+@{
+    Layout = "LayoutHome";
+
+    ViewData["Title"] = "登录";
+}
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href="~/css/Home/loginStyle.css" rel="stylesheet" />
+
+<div class="kbgi" id="bgi"></div>
+
+<div class="row" id="loginRow">
+  <div class="col-md-4"></div>
+
+  <div class="col-md-4" id="loginFormDiv">
+    <form asp-area="" asp-action="Login" asp-controller="Home" class="mdl-card mdl-shadow--4dp" id="loginForm">
+      <p id="loginTitle">登录</p>
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <label class="mdl-textfield__label" for="loginNumer">学号 / 教师号</label>
+        <input asp-for="AccountID" class="mdl-textfield__input" 
+               type="number" id="loginNumer" >
+      </div>
+      <span asp-validation-for="AccountID" class="text-danger"></span>
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <label class="mdl-textfield__label" for="loginPassword">密码</label>
+        <input asp-for="Password" class="mdl-textfield__input" 
+               type="password" id="loginPassword" maxlength="20" >
+      </div>
+      <span asp-validation-for="Password" class="text-danger"></span>
+
+      <div class="row" id="loginSubmitButtonRow">
+        <button type="submit" id="loginSubmit"
+                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+          登录
+        </button>
+      </div>
+
+      @*<div class="row">
+        <a asp-action="Index" id="loginForgetPwd">忘记密码</a>
+      </div>*@
+    </form>
+  </div>
+
+  <div class="col-md-4"></div>
+</div>
+
+<a asp-action="AdminLogin" id="ae"
+   class="mdl-button mdl-button--colored mdl-button--fab mdl-js-button mdl-js-ripple-effect"
+   style="position:fixed; bottom: 60px; right: 120px;">
+  <i class="material-icons">lock_outline</i>
+</a>
+<div class="mdl-tooltip" for="ae">系统管理员入口</div>
+
+@Html.Partial("_BSTollTipPartial");
+
+<script src="~/js/Home/center.js"></script>
+
+@Html.Partial("_ValidationScriptsPartial")
