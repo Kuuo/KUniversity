@@ -30,7 +30,7 @@
         <th class="mdl-data-table__cell--non-numeric">学号</th>
         <th class="mdl-data-table__cell--non-numeric">姓名</th>
         <th class="mdl-data-table__cell--non-numeric">专业</th>
-        <th>成绩</th>
+        @*<th>成绩</th>*@
       </tr>
     </thead>
     <tbody>
@@ -46,9 +46,9 @@
             <td class="mdl-data-table__cell--non-numeric">
               @Html.DisplayFor(modelItem => item.Student.Eclass.Major.Title)
             </td>
-            <td>
+            @*<td>
               @Html.DisplayFor(modelItem => item.Grade)
-            </td>
+            </td>*@
           </tr>
       }
     </tbody>

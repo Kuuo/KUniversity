@@ -4,10 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>@ViewData["Title"] - KUniversity</title>
+  <link rel="shortcut icon" href="~/favicon.ico">
 
   <environment names="Development">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="~/lib/mdl/iconfont/material-icons.css" />
     <link rel="stylesheet" href="~/lib/mdl/material.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
   </environment>
@@ -15,17 +16,13 @@
     <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
           asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
           asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="~/lib/mdl/iconfont/material-icons.css" />
     <link rel="stylesheet" href="~/lib/mdl/material.min.css" />
     <link rel="stylesheet" href="~/css/site.min.css" />
   </environment>
 </head>
 
 @{
-    var avatarSrc = ((int)ViewData["Gender"]) == 0 ?
-        "images/Avatar/avatar_female.png" :
-        "images/Avatar/avatar_male.png";
-
     var deptID = (int)ViewData["AdminDeptID"];
     var ecID = (int)ViewData["HTEClassID"];
 
@@ -50,7 +47,15 @@
 
     <div class="db-drawer mdl-layout__drawer mdl-color--indigo-500">
       <header class="db-drawer-header">
-        <img src="@avatarSrc" class="db-avatar">
+        @if ((int)ViewData["Gender"] == 0)
+        {
+            <img src="~/images/Avatar/avatar_female.png" class="db-avatar">
+        }
+        else
+        {
+            <img src="~/images/Avatar/avatar_male.png" class="db-avatar">
+        }
+
         <div class="db-drawer-header-name">
           <span>@ViewData["AccountName"]</span>
         </div>

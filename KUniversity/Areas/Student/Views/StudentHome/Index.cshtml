@@ -4,7 +4,7 @@
     ViewData["Title"] = "学生";
     ViewData["PageTitle"] = "概览";
 
-    var today = DayOfWeek.Monday;
+    var today = DateTime.Now.DayOfWeek;
     var todayEnrollments = Model.Enrollment.Where(e => e.CourseAssignment.ClassTimeInDayOfWeek(today));
     var todayCourses = new List<Courseassignment>();
     foreach (var item in todayEnrollments)

@@ -11,6 +11,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="docs\**" />
+    <Content Remove="docs\**" />
+    <EmbeddedResource Remove="docs\**" />
+    <None Remove="docs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot/lib\mdl\material.min.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="wwwroot\css\Home\loginStyle.css" />
     <Content Include="wwwroot\css\site.css" />
     <Content Include="wwwroot\css\site.min.css" />
@@ -189,13 +200,10 @@
     <Content Include="wwwroot\lib\mdl\iconfont\MaterialIcons-Regular.woff" />
     <Content Include="wwwroot\lib\mdl\iconfont\MaterialIcons-Regular.woff2" />
     <Content Include="wwwroot\lib\mdl\iconfont\README.md" />
-    <Content Include="wwwroot\lib\mdl\LICENSE" />
-    <Content Include="wwwroot\lib\mdl\material.css" />
     <Content Include="wwwroot\lib\mdl\material.min.css" />
     <Content Include="wwwroot\lib\mdl\material.min.css.map" />
     <Content Include="wwwroot\lib\mdl\material.min.js" />
     <Content Include="wwwroot\lib\mdl\material.min.js.map" />
-    <Content Include="wwwroot\lib\mdl\package.json" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />

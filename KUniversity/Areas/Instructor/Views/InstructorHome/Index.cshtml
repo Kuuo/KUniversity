@@ -4,7 +4,7 @@
     ViewData["Title"] = "概览";
     ViewData["PageTtile"] = "概览";
 
-    var today = DayOfWeek.Monday;
+    var today = DateTime.Now.DayOfWeek;
     var todayCourses = Model.Courseassignment.Where(c => c.ClassTimeInDayOfWeek(today));
 }
 
